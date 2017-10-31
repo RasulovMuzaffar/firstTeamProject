@@ -2,14 +2,23 @@ package uty.vc.controller.auth;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import uty.vc.dbconn.DBConnectionLocal;
 
 @WebServlet(name = "Auth", urlPatterns = {"/auth"})
 public class Auth extends HttpServlet {
+
+    @EJB
+    private DBConnectionLocal dBConnection;
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -36,6 +45,20 @@ public class Auth extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        Connection conDb2 = null;
+        try {
+            conDb2 = dBConnection.connect();
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(Auth.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+            conDb2.close();
+            dBConnection.closeCon();
+        } catch (SQLException ex) {
+            Logger.getLogger(Auth.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         String login = null;
         String password = null;
         try {
@@ -50,8 +73,8 @@ public class Auth extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<body>");
-            out.println("<h1>Login: " + login+ "</h1>");
-            out.println("<h1>Password: " + password+ "</h1>");
+            out.println("<h1>Login: " + login + "</h1>");
+            out.println("<h1>Password: " + password + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

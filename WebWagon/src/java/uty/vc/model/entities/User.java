@@ -17,22 +17,22 @@ public class User implements Serializable {
 
     private String email;
 
-    private Slujba slujba;
+    private int id_sljb;
 
-    private Doljnost doljnost;
+    private int id_dolj;
 
     public User() {
     }
 
-    public User(int id_user, String fName, String lName, String login, String pass, String email, Slujba slujba, Doljnost doljnost) {
+    public User(int id_user, String fName, String lName, String login, String pass, String email, int id_sljb, int id_dolj) {
         this.id_user = id_user;
         this.fName = fName;
         this.lName = lName;
         this.login = login;
         this.pass = pass;
         this.email = email;
-        this.slujba = slujba;
-        this.doljnost = doljnost;
+        this.id_sljb = id_sljb;
+        this.id_dolj = id_dolj;
     }
 
     public int getId_user() {
@@ -83,38 +83,34 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public Slujba getSlujba() {
-        return slujba;
+    public int getId_sljb() {
+        return id_sljb;
     }
 
-    public void setSlujba(Slujba slujba) {
-        this.slujba = slujba;
+    public void setId_sljb(int id_sljb) {
+        this.id_sljb = id_sljb;
     }
 
-    public Doljnost getDoljnost() {
-        return doljnost;
+    public int getId_dolj() {
+        return id_dolj;
     }
 
-    public void setDoljnost(Doljnost doljnost) {
-        this.doljnost = doljnost;
+    public void setId_dolj(int id_dolj) {
+        this.id_dolj = id_dolj;
     }
-
-    @Override
-    public String toString() {
-        return "User{" + "id_user=" + id_user + ", fName=" + fName + ", lName=" + lName + ", login=" + login + ", pass=" + pass + ", email=" + email + ", slujba=" + slujba + ", doljnost=" + doljnost + '}';
-    }
+    
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 47 * hash + this.id_user;
-        hash = 47 * hash + Objects.hashCode(this.fName);
-        hash = 47 * hash + Objects.hashCode(this.lName);
-        hash = 47 * hash + Objects.hashCode(this.login);
-        hash = 47 * hash + Objects.hashCode(this.pass);
-        hash = 47 * hash + Objects.hashCode(this.email);
-        hash = 47 * hash + Objects.hashCode(this.slujba);
-        hash = 47 * hash + Objects.hashCode(this.doljnost);
+        hash = 97 * hash + this.id_user;
+        hash = 97 * hash + Objects.hashCode(this.fName);
+        hash = 97 * hash + Objects.hashCode(this.lName);
+        hash = 97 * hash + Objects.hashCode(this.login);
+        hash = 97 * hash + Objects.hashCode(this.pass);
+        hash = 97 * hash + Objects.hashCode(this.email);
+        hash = 97 * hash + this.id_sljb;
+        hash = 97 * hash + this.id_dolj;
         return hash;
     }
 
@@ -133,6 +129,12 @@ public class User implements Serializable {
         if (this.id_user != other.id_user) {
             return false;
         }
+        if (this.id_sljb != other.id_sljb) {
+            return false;
+        }
+        if (this.id_dolj != other.id_dolj) {
+            return false;
+        }
         if (!Objects.equals(this.fName, other.fName)) {
             return false;
         }
@@ -148,14 +150,13 @@ public class User implements Serializable {
         if (!Objects.equals(this.email, other.email)) {
             return false;
         }
-        if (!Objects.equals(this.slujba, other.slujba)) {
-            return false;
-        }
-        if (!Objects.equals(this.doljnost, other.doljnost)) {
-            return false;
-        }
         return true;
     }
 
-    
+    @Override
+    public String toString() {
+        return "User{" + "id_user=" + id_user + ", fName=" + fName + ", lName=" + lName + ", login=" + login + ", pass=" + pass + ", email=" + email + ", id_sljb=" + id_sljb + ", id_dolj=" + id_dolj + '}';
+    }
+
+        
 }

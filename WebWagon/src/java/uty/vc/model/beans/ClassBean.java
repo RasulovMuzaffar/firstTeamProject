@@ -66,14 +66,16 @@ public class ClassBean implements BeanInterface {
         return l;
     }
 
+    @Override
     public User getUserByLoginPass(String login, String password) {
+        System.out.println(login + " : " + password);
         User u = new User();
         String query = "select id, fam, name, login, pass, email, id_dolj, id_sljb"
-                + " from users where login=? and pass=?";
+                + " from users where login='"+login+"' and pass='"+password+"'";
         try (Connection conn = getDS().getConnection(); PreparedStatement pstmt = conn.prepareStatement(query);
                 ResultSet rs = pstmt.executeQuery()) {
-            pstmt.setString(1, login);
-            pstmt.setString(2, password);
+//            pstmt.setString(1, login);
+//            pstmt.setString(2, password);
             while (rs.next()) {
                 u = new User(rs.getInt("id"), rs.getString("fam"),
                         rs.getString("name"), rs.getString("login"),
@@ -85,7 +87,7 @@ public class ClassBean implements BeanInterface {
             Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-        
+
         return u;
     }
 

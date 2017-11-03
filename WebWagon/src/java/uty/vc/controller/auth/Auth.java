@@ -96,7 +96,7 @@ public class Auth extends HttpServlet {
             if (u!=null) {
                 out.println("<h1>User Name: " + u.getlName() + "</h1>");
             }else{
-                out.println("NO!!!1");
+                out.println("NO!!!!");
             }
             out.println("</body>");
             out.println("</html>");

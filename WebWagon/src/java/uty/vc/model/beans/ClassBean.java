@@ -92,7 +92,7 @@ public class ClassBean implements BeanInterface {
     }
 
     @Override
-    public User getUserById() {
+    public User getUserById(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

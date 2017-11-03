@@ -15,5 +15,5 @@ public interface BeanInterface {
     
     public User getUserByLoginPass(String login, String password);
     
-    public User getUserById();
+    public User getUserById(int id);
 }

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 import uty.vc.model.beans.BeanInterface;
 import uty.vc.model.beans.ClassBean;
+import uty.vc.model.entities.Role;
 import uty.vc.model.entities.User;
 import uty.vc.utils.MD5Parser;
 //import uty.vc.dbconn.DBConnectionLocal;
@@ -70,23 +71,35 @@ public class Auth extends HttpServlet {
             MD5Parser md5 = new MD5Parser();
             JSONObject obj = new JSONObject();
             User u = bi.getUserByLoginPass(login, md5.getMD5(password));
-            System.out.println("u--> " + u);
             if (u != null) {
-                obj.put("id", u.getId_user());
-                obj.put("fName", u.getfName());
-                obj.put("lName", u.getlName());
-                obj.put("login", u.getLogin());
-                obj.put("password", u.getPass());
-                obj.put("eMail", u.getEmail());
-                obj.put("idDolj", u.getId_dolj());
-                obj.put("idSljb", u.getId_sljb());
-                System.out.println("JSON obj -->> " + obj);
-                out.print(obj);
-                request.getSession().setAttribute("u", obj);
-                request.getRequestDispatcher("index.jsp").forward(request, response);
-//                out.println(new Gson().toJson(u));
-            } else {
-                out.println("NO!!!!");
+                Role r = bi.getRoleById(u.getIdRole());
+                if (r != null) {
+                    switch (r.getRole()) {
+                        case "admin":
+                            request.getRequestDispatcher("registration.jsp").forward(request, response);
+                            break;
+                        case "user":
+                            request.getRequestDispatcher("index.jsp").forward(request, response);
+                            break;
+                    }
+                }
+            } //            System.out.println("u--> " + u);
+            //            if (u != null) {
+            //                obj.put("id", u.getIdUser());
+            //                obj.put("fName", u.getfName());
+            //                obj.put("lName", u.getlName());
+            //                obj.put("login", u.getLogin());
+            //                obj.put("password", u.getPass());
+            //                obj.put("eMail", u.getEmail());
+            //                obj.put("idDolj", u.getIdDolj());
+            //                obj.put("idSljb", u.getIdSljb());
+            //                System.out.println("JSON obj -->> " + obj);
+            //                out.print(obj);
+            //                request.getSession().setAttribute("u", obj);
+            //                request.getRequestDispatcher("index.jsp").forward(request, response);
+            ////                out.println(new Gson().toJson(u));
+            else {
+                out.println("I cannot find !!!!");
             }
 
 //            out.println("</body>");

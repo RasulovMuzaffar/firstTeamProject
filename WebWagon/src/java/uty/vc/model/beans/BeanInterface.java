@@ -3,6 +3,7 @@ package uty.vc.model.beans;
 import java.sql.Connection;
 import java.util.List;
 import javax.sql.DataSource;
+import uty.vc.model.entities.Role;
 import uty.vc.model.entities.User;
 
 public interface BeanInterface {
@@ -17,5 +18,7 @@ public interface BeanInterface {
 
     public User getUserById(int id);
 
-    public String addUser(String fName, String lName, String login, String pass, String email, int id_sljb, int id_dolj);
+    public String addUser(String fName, String lName, String login, String pass, String email, int idSljb, int idDolj, int idRole);
+    
+    public Role getRoleById(int idRole);
 }

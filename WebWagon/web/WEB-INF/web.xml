@@ -14,4 +14,16 @@
         <res-type>javax.sql.DataSource</res-type>
         <res-auth>Container</res-auth>
     </resource-ref>
+    <filter>
+        <filter-name>FilterCharset</filter-name>
+        <filter-class>uty.vc.utils.FilterCharset</filter-class>
+        <init-param>
+            <param-name>codepage</param-name>
+            <param-value>UTF8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>FilterCharset</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

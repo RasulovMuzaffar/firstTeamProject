@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class User implements Serializable {
 
-    private int id_user;
+    private int idUser;
 
     private String fName;
 
@@ -17,30 +17,32 @@ public class User implements Serializable {
 
     private String email;
 
-    private int id_sljb;
+    private int idSljb;
 
-    private int id_dolj;
+    private int idDolj;
+    private int idRole;
 
     public User() {
     }
 
-    public User(int id_user, String fName, String lName, String login, String pass, String email, int id_sljb, int id_dolj) {
-        this.id_user = id_user;
+    public User(int idUser, String fName, String lName, String login, String pass, String email, int idSljb, int idDolj, int idRole) {
+        this.idUser = idUser;
         this.fName = fName;
         this.lName = lName;
         this.login = login;
         this.pass = pass;
         this.email = email;
-        this.id_sljb = id_sljb;
-        this.id_dolj = id_dolj;
+        this.idSljb = idSljb;
+        this.idDolj = idDolj;
+        this.idRole = idRole;
     }
 
-    public int getId_user() {
-        return id_user;
+    public int getIdUser() {
+        return idUser;
     }
 
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     public String getfName() {
@@ -83,34 +85,42 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public int getId_sljb() {
-        return id_sljb;
+    public int getIdSljb() {
+        return idSljb;
     }
 
-    public void setId_sljb(int id_sljb) {
-        this.id_sljb = id_sljb;
+    public void setIdSljb(int idSljb) {
+        this.idSljb = idSljb;
     }
 
-    public int getId_dolj() {
-        return id_dolj;
+    public int getIdDolj() {
+        return idDolj;
     }
 
-    public void setId_dolj(int id_dolj) {
-        this.id_dolj = id_dolj;
+    public void setIdDolj(int idDolj) {
+        this.idDolj = idDolj;
     }
-    
+
+    public int getIdRole() {
+        return idRole;
+    }
+
+    public void setIdRole(int idRole) {
+        this.idRole = idRole;
+    }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + this.id_user;
-        hash = 97 * hash + Objects.hashCode(this.fName);
-        hash = 97 * hash + Objects.hashCode(this.lName);
-        hash = 97 * hash + Objects.hashCode(this.login);
-        hash = 97 * hash + Objects.hashCode(this.pass);
-        hash = 97 * hash + Objects.hashCode(this.email);
-        hash = 97 * hash + this.id_sljb;
-        hash = 97 * hash + this.id_dolj;
+        int hash = 7;
+        hash = 73 * hash + this.idUser;
+        hash = 73 * hash + Objects.hashCode(this.fName);
+        hash = 73 * hash + Objects.hashCode(this.lName);
+        hash = 73 * hash + Objects.hashCode(this.login);
+        hash = 73 * hash + Objects.hashCode(this.pass);
+        hash = 73 * hash + Objects.hashCode(this.email);
+        hash = 73 * hash + this.idSljb;
+        hash = 73 * hash + this.idDolj;
+        hash = 73 * hash + this.idRole;
         return hash;
     }
 
@@ -126,13 +136,16 @@ public class User implements Serializable {
             return false;
         }
         final User other = (User) obj;
-        if (this.id_user != other.id_user) {
+        if (this.idUser != other.idUser) {
             return false;
         }
-        if (this.id_sljb != other.id_sljb) {
+        if (this.idSljb != other.idSljb) {
             return false;
         }
-        if (this.id_dolj != other.id_dolj) {
+        if (this.idDolj != other.idDolj) {
+            return false;
+        }
+        if (this.idRole != other.idRole) {
             return false;
         }
         if (!Objects.equals(this.fName, other.fName)) {
@@ -155,8 +168,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "User{" + "id_user=" + id_user + ", fName=" + fName + ", lName=" + lName + ", login=" + login + ", pass=" + pass + ", email=" + email + ", id_sljb=" + id_sljb + ", id_dolj=" + id_dolj + '}';
+        return "User{" + "idUser=" + idUser + ", fName=" + fName + ", lName=" + lName + ", login=" + login + ", pass=" + pass + ", email=" + email + ", idSljb=" + idSljb + ", idDolj=" + idDolj + ", idRole=" + idRole + '}';
     }
 
-        
 }

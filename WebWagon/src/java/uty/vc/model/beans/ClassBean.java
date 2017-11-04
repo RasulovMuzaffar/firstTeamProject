@@ -132,6 +132,38 @@ public class ClassBean implements BeanInterface {
 
     @Override
     public String addUser(String fName, String lName, String login, String pass, String email, int id_sljb, int id_dolj) {
+        User u = null;
+        String query = "insert into users "
+                + "(fam, name, login, pass, email, id_dolj, id_sljb) "
+                + "(?,?,?,?,?,?,?)";
+        try (Connection conn = getDS().getConnection();
+                PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, lName);
+            pstmt.setString(2, fName);
+            pstmt.setString(3, login);
+            pstmt.setString(4, pass);
+            pstmt.setString(5, email);
+            pstmt.setInt(6, id_dolj);
+            pstmt.setInt(7, id_sljb);
+            try (ResultSet rs = pstmt.executeQuery()) {
+
+                while (rs.next()) {
+                    u = new User(rs.getInt("id"), rs.getString("fam"),
+                            rs.getString("name"), rs.getString("login"),
+                            rs.getString("pass"), rs.getString("email"),
+                            rs.getInt("id_dolj"), rs.getInt("id_sljb"));
+
+                }
+            } catch (SQLException ex) {
+//                throw new SQLException("Exception on the ResultSet getUserByLoginPass");
+                Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
+                return null;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        
         return null;
     }
 

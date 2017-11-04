@@ -10,10 +10,12 @@ public interface BeanInterface {
     public DataSource getDS();
 
     public String getVersionDB();
-    
+
     public List<User> getAllUsers();
-    
+
     public User getUserByLoginPass(String login, String password);
-    
+
     public User getUserById(int id);
+
+    public String addUser(String fName, String lName, String login, String pass, String email, int id_sljb, int id_dolj);
 }

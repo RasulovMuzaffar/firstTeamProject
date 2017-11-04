@@ -12,7 +12,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import uty.vc.controller.auth.Auth;
 import uty.vc.model.entities.User;
 
 public class ClassBean implements BeanInterface {
@@ -39,6 +38,11 @@ public class ClassBean implements BeanInterface {
         try {
             dbVersion = getDS().getConnection().getMetaData().getDatabaseProductVersion();
         } catch (SQLException ex) {
+            try {
+                throw new SQLException(dbVersion);
+            } catch (SQLException ex1) {
+                Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex1);
+            }
             Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("SQLException ex-|-> " + ex);
         }
@@ -68,20 +72,26 @@ public class ClassBean implements BeanInterface {
 
     @Override
     public User getUserByLoginPass(String login, String password) {
-        System.out.println(login + " : " + password);
-        User u = new User();
+        User u = null;
         String query = "select id, fam, name, login, pass, email, id_dolj, id_sljb"
-                + " from users where login='"+login+"' and pass='"+password+"'";
-        try (Connection conn = getDS().getConnection(); PreparedStatement pstmt = conn.prepareStatement(query);
-                ResultSet rs = pstmt.executeQuery()) {
-//            pstmt.setString(1, login);
-//            pstmt.setString(2, password);
-            while (rs.next()) {
-                u = new User(rs.getInt("id"), rs.getString("fam"),
-                        rs.getString("name"), rs.getString("login"),
-                        rs.getString("pass"), rs.getString("email"),
-                        rs.getInt("id_dolj"), rs.getInt("id_sljb"));
+                + " from users where login=? and pass=?";
 
+        try (Connection conn = getDS().getConnection();
+                PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, login);
+            pstmt.setString(2, password);
+            try (ResultSet rs = pstmt.executeQuery()) {
+
+                while (rs.next()) {
+                    u = new User(rs.getInt("id"), rs.getString("fam"),
+                            rs.getString("name"), rs.getString("login"),
+                            rs.getString("pass"), rs.getString("email"),
+                            rs.getInt("id_dolj"), rs.getInt("id_sljb"));
+                }
+            } catch (SQLException ex) {
+//                throw new SQLException("Exception on the ResultSet getUserByLoginPass");
+                Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
+                return null;
             }
         } catch (SQLException ex) {
             Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
@@ -93,7 +103,36 @@ public class ClassBean implements BeanInterface {
 
     @Override
     public User getUserById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        User u = null;
+        String query = "select id, fam, name, login, pass, email, id_dolj, id_sljb"
+                + " from users where id=?";
+        try (Connection conn = getDS().getConnection();
+                PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setInt(1, id);
+            try (ResultSet rs = pstmt.executeQuery()) {
+
+                while (rs.next()) {
+                    u = new User(rs.getInt("id"), rs.getString("fam"),
+                            rs.getString("name"), rs.getString("login"),
+                            rs.getString("pass"), rs.getString("email"),
+                            rs.getInt("id_dolj"), rs.getInt("id_sljb"));
+
+                }
+            } catch (SQLException ex) {
+//                throw new SQLException("Exception on the ResultSet getUserByLoginPass");
+                Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
+                return null;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        return u;
+    }
+
+    @Override
+    public String addUser(String fName, String lName, String login, String pass, String email, int id_sljb, int id_dolj) {
+        return null;
     }
 
 }

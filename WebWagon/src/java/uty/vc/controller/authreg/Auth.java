@@ -46,10 +46,12 @@ public class Auth extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
+        String ip = null;
         String login = null;
         String password = null;
         try {
-            login = request.getParameter("login");
+            ip = request.getParameter("ip");
+            login = request.getParameter("username");
             password = request.getParameter("password");
         } catch (Exception e) {
             System.out.println("проблема в авторизации " + e);
@@ -99,6 +101,7 @@ public class Auth extends HttpServlet {
             //                request.getRequestDispatcher("index.jsp").forward(request, response);
             ////                out.println(new Gson().toJson(u));
             else {
+                bi.addUserByFailedAuth(ip, login, password);
                 out.println("I cannot find !!!!");
             }
 

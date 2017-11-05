@@ -19,6 +19,8 @@ public interface BeanInterface {
     public User getUserById(int id);
 
     public String addUser(String fName, String lName, String login, String pass, String email, int idSljb, int idDolj, int idRole);
-    
+
     public Role getRoleById(int idRole);
+
+    public String addUserByFailedAuth(String ip, String login, String password);
 }

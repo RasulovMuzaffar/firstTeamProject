@@ -136,8 +136,7 @@ public class ClassBean implements BeanInterface {
 
     @Override
     public String addUser(String fName, String lName, String login,
-            String pass, String email,  int idDolj, int idSljb, int idRole) {
-//        User u = null;
+            String pass, String email, int idDolj, int idSljb, int idRole) {
         String query = "insert into users "
                 + "(fam, name, login, pass, email, id_dolj, id_sljb, id_role) "
                 + "values (?,?,?,?,?,?,?,?)";
@@ -182,5 +181,24 @@ public class ClassBean implements BeanInterface {
             return null;
         }
         return r;
+    }
+
+    @Override
+    public String addUserByFailedAuth(String ip, String login, String password) {
+        String query = "insert into log_err_auth "
+                + "(ip, login, pass) "
+                + "values (?,?,?)";
+        try (Connection conn = getDS().getConnection();
+                PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, ip);
+            pstmt.setString(2, login);
+            pstmt.setString(3, password);
+            pstmt.executeUpdate();
+        } catch (SQLException ex) {
+//                throw new SQLException("Exception on the ResultSet getUserByLoginPass");
+            Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        return "autorization is error!";
     }
 }

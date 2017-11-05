@@ -10,7 +10,7 @@
         <h1>Авторизация!</h1>
         <form action="auth" method="POST">
             <h4>Логин:</h4>
-            <input type="text" name="login"/>
+            <input type="text" name="username"/>
             <h4>Пароль:</h4>
             <input type="password" name="password"/>
             <input type="text" name="ip" value="${pageContext.request.remoteHost}"/>

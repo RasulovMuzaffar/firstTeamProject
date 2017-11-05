@@ -13,7 +13,6 @@ import uty.vc.model.beans.ClassBean;
 import uty.vc.model.entities.Role;
 import uty.vc.model.entities.User;
 import uty.vc.utils.MD5Parser;
-//import uty.vc.dbconn.DBConnectionLocal;
 
 @WebServlet(name = "Auth", urlPatterns = {"/auth"})
 public class Auth extends HttpServlet {

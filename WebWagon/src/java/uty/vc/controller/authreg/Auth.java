@@ -13,7 +13,6 @@ import uty.vc.model.beans.ClassBean;
 import uty.vc.model.entities.Role;
 import uty.vc.model.entities.User;
 import uty.vc.utils.MD5Parser;
-//import uty.vc.dbconn.DBConnectionLocal;
 
 @WebServlet(name = "Auth", urlPatterns = {"/auth"})
 public class Auth extends HttpServlet {
@@ -54,7 +53,7 @@ public class Auth extends HttpServlet {
             login = request.getParameter("username");
             password = request.getParameter("password");
         } catch (Exception e) {
-            System.out.println("проблема в авторизации " + e);
+            System.out.println("РїСЂРѕР±Р»РµРјР° РІ Р°РІС‚РѕСЂРёР·Р°С†РёРё " + e);
         }
         response.setContentType("application/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {

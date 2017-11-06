@@ -5,24 +5,24 @@ import java.util.Objects;
 
 public class Doljnost implements Serializable {
 
-    private int id_doljnost;
+    private int idDoljnost;
 
     private String name;
 
     public Doljnost() {
     }
 
-    public Doljnost(int id_doljnost, String name) {
-        this.id_doljnost = id_doljnost;
+    public Doljnost(int idDoljnost, String name) {
+        this.idDoljnost = idDoljnost;
         this.name = name;
     }
 
-    public int getId_doljnost() {
-        return id_doljnost;
+    public int getIdDoljnost() {
+        return idDoljnost;
     }
 
-    public void setId_doljnost(int id_doljnost) {
-        this.id_doljnost = id_doljnost;
+    public void setIdDoljnost(int idDoljnost) {
+        this.idDoljnost = idDoljnost;
     }
 
     public String getName() {
@@ -36,8 +36,8 @@ public class Doljnost implements Serializable {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 67 * hash + this.id_doljnost;
-        hash = 67 * hash + Objects.hashCode(this.name);
+        hash = 89 * hash + this.idDoljnost;
+        hash = 89 * hash + Objects.hashCode(this.name);
         return hash;
     }
 
@@ -53,7 +53,7 @@ public class Doljnost implements Serializable {
             return false;
         }
         final Doljnost other = (Doljnost) obj;
-        if (this.id_doljnost != other.id_doljnost) {
+        if (this.idDoljnost != other.idDoljnost) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
@@ -64,7 +64,6 @@ public class Doljnost implements Serializable {
 
     @Override
     public String toString() {
-        return "Doljnost{" + "id_doljnost=" + id_doljnost + ", name=" + name + '}';
-    }
-
+        return "Doljnost{" + "idDoljnost=" + idDoljnost + ", name=" + name + '}';
+    }    
 }

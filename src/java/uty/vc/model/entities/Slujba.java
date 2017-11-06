@@ -5,24 +5,24 @@ import java.util.Objects;
 
 public class Slujba implements Serializable {
 
-    private int id_slujba;
+    private int idSlujba;
 
     private String name;
 
     public Slujba() {
     }
 
-    public Slujba(int id_slujba, String name) {
-        this.id_slujba = id_slujba;
+    public Slujba(int idSlujba, String name) {
+        this.idSlujba = idSlujba;
         this.name = name;
     }
 
-    public int getId_slujba() {
-        return id_slujba;
+    public int getIdSlujba() {
+        return idSlujba;
     }
 
-    public void setId_slujba(int id_slujba) {
-        this.id_slujba = id_slujba;
+    public void setIdSlujba(int idSlujba) {
+        this.idSlujba = idSlujba;
     }
 
     public String getName() {
@@ -35,9 +35,9 @@ public class Slujba implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 41 * hash + this.id_slujba;
-        hash = 41 * hash + Objects.hashCode(this.name);
+        int hash = 7;
+        hash = 79 * hash + this.idSlujba;
+        hash = 79 * hash + Objects.hashCode(this.name);
         return hash;
     }
 
@@ -53,7 +53,7 @@ public class Slujba implements Serializable {
             return false;
         }
         final Slujba other = (Slujba) obj;
-        if (this.id_slujba != other.id_slujba) {
+        if (this.idSlujba != other.idSlujba) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
@@ -64,7 +64,6 @@ public class Slujba implements Serializable {
 
     @Override
     public String toString() {
-        return "Slujba{" + "id_slujba=" + id_slujba + ", name=" + name + '}';
+        return "Slujba{" + "idSlujba=" + idSlujba + ", name=" + name + '}';
     }
-
 }

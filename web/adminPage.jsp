@@ -1,9 +1,3 @@
-<%-- 
-    Document   : registration
-    Created on : 04.11.2017, 18:34:09
-    Author     : Muzaffar
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

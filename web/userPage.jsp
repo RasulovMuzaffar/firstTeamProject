@@ -95,8 +95,8 @@
         <script src="assets/js/app.js"></script>
 
 
-        <script src="//maps.googleapis.com/maps/api/js?key="></script>
-        <script src="assets/js/plugins/gmapsjs/gmaps.min.js"></script>
+<!--        <script src="//maps.googleapis.com/maps/api/js?key="></script>
+        <script src="assets/js/plugins/gmapsjs/gmaps.min.js"></script>-->
 
         <script src="assets/js/pages/base_comp_maps_full.js"></script>
     </body>

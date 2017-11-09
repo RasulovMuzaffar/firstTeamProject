@@ -71,11 +71,13 @@ public class Auth extends HttpServlet {
 //            User u = new User();
             MD5Parser md5 = new MD5Parser();
             JSONObject obj = new JSONObject();
-//            System.out.println("DB2 Version >>>> "+bi.getVersionDB());
+            System.out.println("DB2 Ds >>>> " + bi.getDSDB2());
+
             User u = bi.getUserByLoginPass(login, md5.getMD5(password));
             if (u != null) {
                 Role r = bi.getRoleById(u.getIdRole());
                 if (r != null) {
+
                     switch (r.getRole()) {
                         case "admin":
                             request.getRequestDispatcher("adminPage.jsp").forward(request, response);
@@ -101,7 +103,7 @@ public class Auth extends HttpServlet {
             //                request.getRequestDispatcher("index.jsp").forward(request, response);
             ////                out.println(new Gson().toJson(u));
             else {
-                ip =  request.getRemoteHost();
+                ip = request.getRemoteHost();
                 bi.addUserByFailedAuth(ip, login, password);
                 out.println("I cannot find !!!!");
             }

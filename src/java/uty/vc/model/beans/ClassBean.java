@@ -19,7 +19,7 @@ public class ClassBean implements BeanInterface {
 
     Context ctx;
     DataSource ds = null;
-    
+
     Context ctxDB2;
     DataSource dsDB2 = null;
 
@@ -36,10 +36,11 @@ public class ClassBean implements BeanInterface {
         return ds;
     }
 
+    @Override
     public DataSource getDSDB2() {
         try {
             ctxDB2 = new InitialContext();
-            dsDB2 = (DataSource) ctx.lookup("java:jboss/datasources/db2WAGON");
+            dsDB2 = (DataSource) ctxDB2.lookup("java:jboss/datasources/db2WAGON");
 
         } catch (NamingException ex) {
             Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
@@ -50,9 +51,9 @@ public class ClassBean implements BeanInterface {
 
     @Override
     public String getVersionDB() {
-        String dbVersion = "";
+        String dbVersion = null;
         try {
-            dbVersion = getDSDB2().getConnection().getMetaData().getDatabaseProductVersion();
+            dbVersion = getDSDB2().getConnection().getMetaData().getDatabaseProductName();
         } catch (SQLException ex) {
             try {
                 throw new SQLException(dbVersion);

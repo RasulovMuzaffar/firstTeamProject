@@ -8,6 +8,8 @@ import uty.vc.model.entities.User;
 public interface BeanInterface {
 
     public DataSource getDS();
+    
+    public DataSource getDSDB2();
 
     public String getVersionDB();
 

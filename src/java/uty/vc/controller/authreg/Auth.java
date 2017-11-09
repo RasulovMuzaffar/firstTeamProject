@@ -71,7 +71,7 @@ public class Auth extends HttpServlet {
 //            User u = new User();
             MD5Parser md5 = new MD5Parser();
             JSONObject obj = new JSONObject();
-            System.out.println("DB2 Version >>>> "+bi.getVersionDB());
+//            System.out.println("DB2 Version >>>> "+bi.getVersionDB());
             User u = bi.getUserByLoginPass(login, md5.getMD5(password));
             if (u != null) {
                 Role r = bi.getRoleById(u.getIdRole());

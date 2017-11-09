@@ -34,9 +34,9 @@ public class FilterCharset implements Filter {
     
     private void doBeforeProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
-        if (debug) {
-            log("FilterCharset:DoBeforeProcessing");
-        }
+//        if (debug) {
+//            log("FilterCharset:DoBeforeProcessing");
+//        }
 
         // Write code here to process the request and/or response before
         // the rest of the filter chain is invoked.
@@ -62,9 +62,9 @@ public class FilterCharset implements Filter {
     
     private void doAfterProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
-        if (debug) {
-            log("FilterCharset:DoAfterProcessing");
-        }
+//        if (debug) {
+//            log("FilterCharset:DoAfterProcessing");
+//        }
 
         // Write code here to process the request and/or response after
         // the rest of the filter chain is invoked.
@@ -98,9 +98,9 @@ public class FilterCharset implements Filter {
             FilterChain chain)
             throws IOException, ServletException {
         
-        if (debug) {
-            log("FilterCharset:doFilter()");
-        }
+//        if (debug) {
+//            log("FilterCharset:doFilter()");
+//        }
         
         doBeforeProcessing(request, response);
         
@@ -158,11 +158,11 @@ public class FilterCharset implements Filter {
      */
     public void init(FilterConfig filterConfig) {        
         this.filterConfig = filterConfig;
-        if (filterConfig != null) {
-            if (debug) {                
-                log("FilterCharset:Initializing filter");
-            }
-        }
+//        if (filterConfig != null) {
+//            if (debug) {                
+//                log("FilterCharset:Initializing filter");
+//            }
+//        }
     }
 
     /**

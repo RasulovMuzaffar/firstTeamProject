@@ -1,8 +1,8 @@
  function validFormLogin (form)
     {
         console.log('1');
-        var login = $('input[name=login-username]').val();
-        var password = $('input[name=login-password').val();
+        var login = $('input[name=username]').val();
+        var password = $('input[name=password').val();
         var indicatorArrorLogin = 0;
         var indicatorArrorPassword = 0;
 

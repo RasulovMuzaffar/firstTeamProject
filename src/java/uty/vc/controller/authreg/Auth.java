@@ -49,7 +49,7 @@ public class Auth extends HttpServlet {
         String login = null;
         String password = null;
         try {
-            ip = request.getParameter("ip");
+//            ip = request.getParameter("ip");
             login = request.getParameter("username");
             password = request.getParameter("password");
         } catch (Exception e) {
@@ -77,10 +77,10 @@ public class Auth extends HttpServlet {
                 if (r != null) {
                     switch (r.getRole()) {
                         case "admin":
-                            request.getRequestDispatcher("registration.jsp").forward(request, response);
+                            request.getRequestDispatcher("adminPage.jsp").forward(request, response);
                             break;
                         case "user":
-                            request.getRequestDispatcher("index.jsp").forward(request, response);
+                            request.getRequestDispatcher("userPage.jsp").forward(request, response);
                             break;
                     }
                 }
@@ -100,6 +100,7 @@ public class Auth extends HttpServlet {
             //                request.getRequestDispatcher("index.jsp").forward(request, response);
             ////                out.println(new Gson().toJson(u));
             else {
+                ip =  request.getRemoteHost();
                 bi.addUserByFailedAuth(ip, login, password);
                 out.println("I cannot find !!!!");
             }

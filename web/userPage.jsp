@@ -25,7 +25,7 @@
                             </button>
 
 
-                            <a class="h5 text-white" href="index.html">
+                            <a class="h5 text-white" href="#">
                                 <i class="fa fa-circle-o-notch text-primary"></i> <span class="h4 font-w600 sidebar-mini-hide">АРМ Вагон</span>
                             </a>
                         </div>

@@ -52,7 +52,6 @@ public class ClassBean implements BeanInterface {
     @Override
     public String getVersionDB() {
         String dbVersion = "";
-        System.out.println(""+getDSDB2());
         try {
             dbVersion = getDSDB2().getConnection().getMetaData().getDatabaseProductName();
         } catch (SQLException ex) {

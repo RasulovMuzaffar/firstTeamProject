@@ -42,16 +42,17 @@ public class ClassBean implements BeanInterface {
             ctxDB2 = new InitialContext();
             dsDB2 = (DataSource) ctxDB2.lookup("java:jboss/datasources/db2WAGON");
 
-        } catch (NamingException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("NamingException | SQLException ex--> " + ex);
         }
-        return ds;
+        return dsDB2;
     }
 
     @Override
     public String getVersionDB() {
-        String dbVersion = null;
+        String dbVersion = "";
+        System.out.println(""+getDSDB2());
         try {
             dbVersion = getDSDB2().getConnection().getMetaData().getDatabaseProductName();
         } catch (SQLException ex) {

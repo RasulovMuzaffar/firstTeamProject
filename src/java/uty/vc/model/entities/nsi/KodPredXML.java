@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uty.vc.model.nsi;
+package uty.vc.model.entities.nsi;
 
 import java.io.Serializable;
 import java.util.Objects;

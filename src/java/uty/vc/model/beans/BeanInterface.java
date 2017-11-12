@@ -2,8 +2,8 @@ package uty.vc.model.beans;
 
 import java.util.List;
 import javax.sql.DataSource;
-import uty.vc.model.entities.Role;
-import uty.vc.model.entities.User;
+import uty.vc.model.entities.user.Role;
+import uty.vc.model.entities.user.User;
 
 public interface BeanInterface {
 

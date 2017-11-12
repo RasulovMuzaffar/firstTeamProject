@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uty.vc.model.nsi;
+package uty.vc.model.entities.nsi;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -12,9 +12,9 @@ import java.util.Objects;
  *
  * @author User
  */
-public class SobsXML implements Serializable {
+public class DorXML implements Serializable {
 
-    private int kod_sob;
+    private int dorId;
 
     private String sName;
 
@@ -37,28 +37,28 @@ public class SobsXML implements Serializable {
     }
 
     /**
-     * Get the value of kod_sob
+     * Get the value of dorId
      *
-     * @return the value of kod_sob
+     * @return the value of dorId
      */
-    public int getKod_sob() {
-        return kod_sob;
+    public int getDorId() {
+        return dorId;
     }
 
     /**
-     * Set the value of kod_sob
+     * Set the value of dorId
      *
-     * @param kod_sob new value of kod_sob
+     * @param dorId new value of dorId
      */
-    public void setKod_sob(int kod_sob) {
-        this.kod_sob = kod_sob;
+    public void setDorId(int dorId) {
+        this.dorId = dorId;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 23 * hash + this.kod_sob;
-        hash = 23 * hash + Objects.hashCode(this.sName);
+        hash = 41 * hash + this.dorId;
+        hash = 41 * hash + Objects.hashCode(this.sName);
         return hash;
     }
 
@@ -73,8 +73,8 @@ public class SobsXML implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final SobsXML other = (SobsXML) obj;
-        if (this.kod_sob != other.kod_sob) {
+        final DorXML other = (DorXML) obj;
+        if (this.dorId != other.dorId) {
             return false;
         }
         if (!Objects.equals(this.sName, other.sName)) {
@@ -85,7 +85,7 @@ public class SobsXML implements Serializable {
 
     @Override
     public String toString() {
-        return "SobsXML{" + "kod_sob=" + kod_sob + ", sName=" + sName + '}';
+        return "DorXML{" + "dorId=" + dorId + ", sName=" + sName + '}';
     }
 
 }

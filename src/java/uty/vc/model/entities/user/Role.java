@@ -1,5 +1,5 @@
 
-package uty.vc.model.entities;
+package uty.vc.model.entities.user;
 
 import java.util.Objects;
 

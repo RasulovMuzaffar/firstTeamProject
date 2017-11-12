@@ -1,28 +1,28 @@
-package uty.vc.model.entities;
+package uty.vc.model.entities.user;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Slujba implements Serializable {
+public class Doljnost implements Serializable {
 
-    private int idSlujba;
+    private int idDoljnost;
 
     private String name;
 
-    public Slujba() {
+    public Doljnost() {
     }
 
-    public Slujba(int idSlujba, String name) {
-        this.idSlujba = idSlujba;
+    public Doljnost(int idDoljnost, String name) {
+        this.idDoljnost = idDoljnost;
         this.name = name;
     }
 
-    public int getIdSlujba() {
-        return idSlujba;
+    public int getIdDoljnost() {
+        return idDoljnost;
     }
 
-    public void setIdSlujba(int idSlujba) {
-        this.idSlujba = idSlujba;
+    public void setIdDoljnost(int idDoljnost) {
+        this.idDoljnost = idDoljnost;
     }
 
     public String getName() {
@@ -35,9 +35,9 @@ public class Slujba implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 79 * hash + this.idSlujba;
-        hash = 79 * hash + Objects.hashCode(this.name);
+        int hash = 3;
+        hash = 89 * hash + this.idDoljnost;
+        hash = 89 * hash + Objects.hashCode(this.name);
         return hash;
     }
 
@@ -52,8 +52,8 @@ public class Slujba implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Slujba other = (Slujba) obj;
-        if (this.idSlujba != other.idSlujba) {
+        final Doljnost other = (Doljnost) obj;
+        if (this.idDoljnost != other.idDoljnost) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
@@ -64,6 +64,6 @@ public class Slujba implements Serializable {
 
     @Override
     public String toString() {
-        return "Slujba{" + "idSlujba=" + idSlujba + ", name=" + name + '}';
-    }
+        return "Doljnost{" + "idDoljnost=" + idDoljnost + ", name=" + name + '}';
+    }    
 }

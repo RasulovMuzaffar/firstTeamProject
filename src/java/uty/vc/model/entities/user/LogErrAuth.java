@@ -1,4 +1,4 @@
-package uty.vc.model.entities;
+package uty.vc.model.entities.user;
 
 import java.sql.Timestamp;
 import java.util.Objects;

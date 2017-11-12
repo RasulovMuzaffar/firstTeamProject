@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 import uty.vc.model.beans.BeanInterface;
 import uty.vc.model.beans.ClassBean;
-import uty.vc.model.entities.User;
+import uty.vc.model.entities.user.User;
 import uty.vc.utils.MD5Parser;
 
 @WebServlet(name = "Reg", urlPatterns = {"/reg"})

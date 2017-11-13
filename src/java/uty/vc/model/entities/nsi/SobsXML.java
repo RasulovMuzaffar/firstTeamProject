@@ -5,59 +5,40 @@ import java.util.Objects;
 
 public class SobsXML implements Serializable {
 
-    private int kod_sob;
-
+    //kod_sob
+    private int kodSob;
+    //sname
     private String sName;
 
     public SobsXML() {
     }
 
-    public SobsXML(int kod_sob, String sName) {
-        this.kod_sob = kod_sob;
+    public SobsXML(int kodSob, String sName) {
+        this.kodSob = kodSob;
         this.sName = sName;
     }
 
-    /**
-     * Get the value of sName
-     *
-     * @return the value of sName
-     */
+    public int getKodSob() {
+        return kodSob;
+    }
+
+    public void setKodSob(int kodSob) {
+        this.kodSob = kodSob;
+    }
+
     public String getsName() {
         return sName;
     }
 
-    /**
-     * Set the value of sName
-     *
-     * @param sName new value of sName
-     */
     public void setsName(String sName) {
         this.sName = sName;
     }
 
-    /**
-     * Get the value of kod_sob
-     *
-     * @return the value of kod_sob
-     */
-    public int getKod_sob() {
-        return kod_sob;
-    }
-
-    /**
-     * Set the value of kod_sob
-     *
-     * @param kod_sob new value of kod_sob
-     */
-    public void setKod_sob(int kod_sob) {
-        this.kod_sob = kod_sob;
-    }
-
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 23 * hash + this.kod_sob;
-        hash = 23 * hash + Objects.hashCode(this.sName);
+        int hash = 5;
+        hash = 67 * hash + this.kodSob;
+        hash = 67 * hash + Objects.hashCode(this.sName);
         return hash;
     }
 
@@ -73,7 +54,7 @@ public class SobsXML implements Serializable {
             return false;
         }
         final SobsXML other = (SobsXML) obj;
-        if (this.kod_sob != other.kod_sob) {
+        if (this.kodSob != other.kodSob) {
             return false;
         }
         if (!Objects.equals(this.sName, other.sName)) {
@@ -84,7 +65,7 @@ public class SobsXML implements Serializable {
 
     @Override
     public String toString() {
-        return "SobsXML{" + "kod_sob=" + kod_sob + ", sName=" + sName + '}';
+        return "SobsXML{" + "kodSob=" + kodSob + ", sName=" + sName + '}';
     }
 
 }

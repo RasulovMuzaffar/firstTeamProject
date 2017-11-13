@@ -78,7 +78,13 @@
                 </ul>
             </header>
             <main id="main-container">
-                тут будет что то 
+                <div class="container">
+                    <form action="wagons" method="post">
+                        <p>Вводите номер(а) вагона(ов)</p>
+                        <input type="text" name="nvag"/>
+                        <input type="submit" value="find"/>
+                    </form>
+                </div> 
             </main>
 
         </div>

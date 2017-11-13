@@ -26,7 +26,7 @@ public class WagonBean implements WagonBeanInterface {
             dsDB2 = (DataSource) ctxDB2.lookup("java:jboss/datasources/db2WAGON");
 
         } catch (Exception ex) {
-            Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(WagonBean.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("NamingException | SQLException ex--> " + ex);
         }
         return dsDB2;
@@ -41,9 +41,9 @@ public class WagonBean implements WagonBeanInterface {
             try {
                 throw new SQLException(dbVersion);
             } catch (SQLException ex1) {
-                Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, ex1);
+                Logger.getLogger(WagonBean.class.getName()).log(Level.SEVERE, null, ex1);
             }
-            Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(WagonBean.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("SQLException ex-|-> " + ex);
         }
         return dbVersion;
@@ -172,7 +172,7 @@ public class WagonBean implements WagonBeanInterface {
                 return null;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(WagonBean.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
         return w;
@@ -226,7 +226,7 @@ public class WagonBean implements WagonBeanInterface {
                 lw.add(w);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(WagonBean.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
         return lw;
@@ -293,7 +293,7 @@ public class WagonBean implements WagonBeanInterface {
                 lw.add(w);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(WagonBean.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
         return lw;

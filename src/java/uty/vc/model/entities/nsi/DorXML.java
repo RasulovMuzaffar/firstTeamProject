@@ -5,8 +5,9 @@ import java.util.Objects;
 
 public class DorXML implements Serializable {
 
+    //dor_id
     private int dorId;
-
+    //sname
     private String sName;
 
     public DorXML() {
@@ -17,47 +18,27 @@ public class DorXML implements Serializable {
         this.sName = sName;
     }
 
-    /**
-     * Get the value of sName
-     *
-     * @return the value of sName
-     */
-    public String getsName() {
-        return sName;
-    }
-
-    /**
-     * Set the value of sName
-     *
-     * @param sName new value of sName
-     */
-    public void setsName(String sName) {
-        this.sName = sName;
-    }
-
-    /**
-     * Get the value of dorId
-     *
-     * @return the value of dorId
-     */
     public int getDorId() {
         return dorId;
     }
 
-    /**
-     * Set the value of dorId
-     *
-     * @param dorId new value of dorId
-     */
     public void setDorId(int dorId) {
         this.dorId = dorId;
+    }
+
+    public String getsName() {
+        return sName;
+    }
+
+    public void setsName(String sName) {
+        this.sName = sName;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 41 * hash + this.dorId;
-        hash = 41 * hash + Objects.hashCode(this.sName);
+        hash = 97 * hash + this.dorId;
+        hash = 97 * hash + Objects.hashCode(this.sName);
         return hash;
     }
 
@@ -86,5 +67,4 @@ public class DorXML implements Serializable {
     public String toString() {
         return "DorXML{" + "dorId=" + dorId + ", sName=" + sName + '}';
     }
-
 }

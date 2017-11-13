@@ -1,17 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package uty.vc.model.entities.nsi;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-/**
- *
- * @author User
- */
 public class KodPredXML implements Serializable {
 
     private short kod;
@@ -19,6 +10,15 @@ public class KodPredXML implements Serializable {
     private String sName;
 
     private int dorId;
+
+    public KodPredXML() {
+    }
+
+    public KodPredXML(short kod, String sName, int dorId) {
+        this.kod = kod;
+        this.sName = sName;
+        this.dorId = dorId;
+    }
 
     /**
      * Get the value of dorId

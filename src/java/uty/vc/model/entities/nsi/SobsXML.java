@@ -1,22 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package uty.vc.model.entities.nsi;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-/**
- *
- * @author User
- */
 public class SobsXML implements Serializable {
 
     private int kod_sob;
 
     private String sName;
+
+    public SobsXML() {
+    }
+
+    public SobsXML(int kod_sob, String sName) {
+        this.kod_sob = kod_sob;
+        this.sName = sName;
+    }
 
     /**
      * Get the value of sName

@@ -2,6 +2,8 @@ package uty.vc.controller.authreg;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,11 +15,15 @@ import uty.vc.model.entities.user.Role;
 import uty.vc.model.entities.user.User;
 import uty.vc.utils.MD5Parser;
 import uty.vc.model.beans.UserBeanInterface;
+import uty.vc.model.beans.WagonBean;
+import uty.vc.model.beans.WagonBeanInterface;
+import uty.vc.model.entities.wagon.Wagon;
 
 @WebServlet(name = "Auth", urlPatterns = {"/auth"})
 public class Auth extends HttpServlet {
 
-    private UserBeanInterface bi = new UserBean();
+    private UserBeanInterface ubi = new UserBean();
+    private WagonBeanInterface wbi = new WagonBean();
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -63,7 +69,7 @@ public class Auth extends HttpServlet {
 //            out.println("<h1>Login: " + login + "</h1>");
 //            out.println("<h1>Password: " + password + "</h1>");
 //            try {
-//                out.println("<h1>dbVersion: " + bi.getVersionDB() + "</h1>");
+//                out.println("<h1>dbVersion: " + ubi.getVersionDB() + "</h1>");
 //            } catch (Exception e) {
 //                System.out.println("EXCEPTION " + e);
 //            }
@@ -71,11 +77,26 @@ public class Auth extends HttpServlet {
 //            User u = new User();
             MD5Parser md5 = new MD5Parser();
             JSONObject obj = new JSONObject();
-            System.out.println("DB2 Ds >--->>-> " + bi.getDSDB2());
+            System.out.println("DB2 Ds >--->>-> " + wbi.getVersionDB());
+            
+            List<Wagon> lw = wbi.getAllWagons();
+            System.out.println("------>>> "+lw.size());
+            for (Wagon w : lw) {
+                System.out.println(w.toString());
+            }
+            
+            
+            String s = "77891398, 76710227, 76710235,62768569, 62768577, 62768585, 62768601, 62768619,      62768643,62768676,11111111";
+            
+            List<Wagon> lw1 = wbi.getWagonsByNumbers(s);
+            for (Wagon w : lw1) {
+                System.out.println(w.toString());
+            }
+            
 
-            User u = bi.getUserByLoginPass(login, md5.getMD5(password));
+            User u = ubi.getUserByLoginPass(login, md5.getMD5(password));
             if (u != null) {
-                Role r = bi.getRoleById(u.getIdRole());
+                Role r = ubi.getRoleById(u.getIdRole());
                 if (r != null) {
 
                     switch (r.getRole()) {
@@ -104,7 +125,7 @@ public class Auth extends HttpServlet {
             ////                out.println(new Gson().toJson(u));
             else {
                 ip = request.getRemoteHost();
-                bi.addUserByFailedAuth(ip, login, password);
+                ubi.addUserByFailedAuth(ip, login, password);
                 out.println("I cannot find !!!!");
             }
 

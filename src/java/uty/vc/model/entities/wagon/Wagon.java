@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package uty.vc.model.entities.wagon;
 
 import java.io.Serializable;
@@ -10,150 +5,223 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-/**
- *
- * @author User
- */
 public class Wagon implements Serializable {
 
+    //nvag
     private int nVag;
-
+//date_post
     private Date datePost;
-
+//zav
     private short zav;
-
+//tip
     private short tip;
-
+//model_kod
     private short modelKod;
-
+//model
     private String model;
-
+//rod
     private short rod;
-
+//nzav
     private String nZav;
-
+//tara
     private short tara;
-
+//gruzp
     private short gruzP;
-
+//dlina
     private int dlina;
-
+//gab
     private short gab;
-
+//mat_kuz
     private short matKuz;
-
+//vozd
     private short vozD;
-
+//areg_rp
     private short aregRp;
-
+//ryc_per
     private String rycPer;
-
+//aregim
     private String aregim;
-
+//r_torm
     private short rTorm;
-
+//tip_avs
     private short tipAvs;
-
+//tip_pogl
     private short tipPogl;
-
+//buf
     private String buf;
-
+//teleg
     private short teleg;
-
+//bal
     private String bal;
-
+//tip_kotl
     private short tipKotl;
-
+//sliv
     private String sliv;
-
+//rama
     private short rama;
-
+//uklon
     private String uklon;
-
+//nvag_s
     private int nVagS;
-
+//date_pr
     private Date datePr;
-
+//date_rem_pr
     private Date dateRemPr;
-
+//vid_slr
     private String vidSlr;
-
+//date_slr
     private Date dateSlr;
-
+//mest_dep
     private short mestDep;
-
+//date_dep
     private Date dateDep;
-
+//mest_kap
     private short mestKap;
-
+//date_kap
     private Date dateKap;
-
+//porog
     private short porog;
-
+//razr_prb
     private String razrPrb;
-
+//km_norm
     private int kmNorm;
-
+//km_prb
     private int kmPrb;
-
+//km_gr
     private int kmGr;
-
+//wes
     private short wes;
-
+//sob
     private short sob;
-
+//pred
     private int pred;
-
+//dor_prip
     private short dorPrip;
-
+//stan_prip
     private int stanPrip;
-
+//depo_prip
     private short depoPrip;
-
+//date_p_reg
     private Date datePReg;
-
+//sob_a
     private short sobA;
-
+//pred_a
     private int predA;
-
+//dor_prip_a
     private short dorPripA;
-
+//stan_prip_a
     private int stanPripA;
-
+//date_a_k
     private Date dateAK;
-
+//sob_iskl
     private short sobIskl;
-
+//dor_iskl
     private short dorIskl;
-
+//depo_iskl
     private short depoIskl;
-
+//stan_iskl
     private int stanIskl;
-
+//pric_iskl
     private short pricIskl;
-
+//time_iskl
     private Timestamp timeIskl;
-
+//date_akt
     private Date dateAkt;
-
+//date_vost
     private Date dateVost;
-
+//dor_vost
     private short dorVost;
-
+//datc
     private String datC;
-
+//poligon
     private short poligon;
-
+//z_kur
     private String zKur;
-
+//prz_sob
     private double przSob;
-
+//ar_rzd
     private String arRzd;
-
+//prod
     private String prod;
-
+//smgs
     private String smgs;
 
+    public Wagon() {
+    }
+
+    public Wagon(int nVag, Date datePost, short zav, short tip, short modelKod, String model, short rod, String nZav, short tara, short gruzP, int dlina, short gab, short matKuz, short vozD, short aregRp, String rycPer, String aregim, short rTorm, short tipAvs, short tipPogl, String buf, short teleg, String bal, short tipKotl, String sliv, short rama, String uklon, int nVagS, Date datePr, Date dateRemPr, String vidSlr, Date dateSlr, short mestDep, Date dateDep, short mestKap, Date dateKap, short porog, String razrPrb, int kmNorm, int kmPrb, int kmGr, short wes, short sob, int pred, short dorPrip, int stanPrip, short depoPrip, Date datePReg, short sobA, int predA, short dorPripA, int stanPripA, Date dateAK, short sobIskl, short dorIskl, short depoIskl, int stanIskl, short pricIskl, Timestamp timeIskl, Date dateAkt, Date dateVost, short dorVost, String datC, short poligon, String zKur, double przSob, String arRzd, String prod, String smgs) {
+        this.nVag = nVag;
+        this.datePost = datePost;
+        this.zav = zav;
+        this.tip = tip;
+        this.modelKod = modelKod;
+        this.model = model;
+        this.rod = rod;
+        this.nZav = nZav;
+        this.tara = tara;
+        this.gruzP = gruzP;
+        this.dlina = dlina;
+        this.gab = gab;
+        this.matKuz = matKuz;
+        this.vozD = vozD;
+        this.aregRp = aregRp;
+        this.rycPer = rycPer;
+        this.aregim = aregim;
+        this.rTorm = rTorm;
+        this.tipAvs = tipAvs;
+        this.tipPogl = tipPogl;
+        this.buf = buf;
+        this.teleg = teleg;
+        this.bal = bal;
+        this.tipKotl = tipKotl;
+        this.sliv = sliv;
+        this.rama = rama;
+        this.uklon = uklon;
+        this.nVagS = nVagS;
+        this.datePr = datePr;
+        this.dateRemPr = dateRemPr;
+        this.vidSlr = vidSlr;
+        this.dateSlr = dateSlr;
+        this.mestDep = mestDep;
+        this.dateDep = dateDep;
+        this.mestKap = mestKap;
+        this.dateKap = dateKap;
+        this.porog = porog;
+        this.razrPrb = razrPrb;
+        this.kmNorm = kmNorm;
+        this.kmPrb = kmPrb;
+        this.kmGr = kmGr;
+        this.wes = wes;
+        this.sob = sob;
+        this.pred = pred;
+        this.dorPrip = dorPrip;
+        this.stanPrip = stanPrip;
+        this.depoPrip = depoPrip;
+        this.datePReg = datePReg;
+        this.sobA = sobA;
+        this.predA = predA;
+        this.dorPripA = dorPripA;
+        this.stanPripA = stanPripA;
+        this.dateAK = dateAK;
+        this.sobIskl = sobIskl;
+        this.dorIskl = dorIskl;
+        this.depoIskl = depoIskl;
+        this.stanIskl = stanIskl;
+        this.pricIskl = pricIskl;
+        this.timeIskl = timeIskl;
+        this.dateAkt = dateAkt;
+        this.dateVost = dateVost;
+        this.dorVost = dorVost;
+        this.datC = datC;
+        this.poligon = poligon;
+        this.zKur = zKur;
+        this.przSob = przSob;
+        this.arRzd = arRzd;
+        this.prod = prod;
+        this.smgs = smgs;
+    }
+
+    
     /**
      * Get the value of smgs
      *

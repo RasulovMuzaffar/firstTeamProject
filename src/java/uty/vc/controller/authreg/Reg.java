@@ -8,15 +8,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
-import uty.vc.model.beans.BeanInterface;
-import uty.vc.model.beans.ClassBean;
+import uty.vc.model.beans.UserBean;
 import uty.vc.model.entities.user.User;
 import uty.vc.utils.MD5Parser;
+import uty.vc.model.beans.UserBeanInterface;
 
 @WebServlet(name = "Reg", urlPatterns = {"/reg"})
 public class Reg extends HttpServlet {
 
-    private final BeanInterface bi = new ClassBean();
+    private final UserBeanInterface bi = new UserBean();
 
     /**
      *

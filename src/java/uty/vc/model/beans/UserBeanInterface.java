@@ -5,7 +5,7 @@ import javax.sql.DataSource;
 import uty.vc.model.entities.user.Role;
 import uty.vc.model.entities.user.User;
 
-public interface BeanInterface {
+public interface UserBeanInterface {
 
     public DataSource getDS();
     

@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
-import uty.vc.model.beans.BeanInterface;
-import uty.vc.model.beans.ClassBean;
+import uty.vc.model.beans.UserBean;
 import uty.vc.model.entities.user.Role;
 import uty.vc.model.entities.user.User;
 import uty.vc.utils.MD5Parser;
+import uty.vc.model.beans.UserBeanInterface;
 
 @WebServlet(name = "Auth", urlPatterns = {"/auth"})
 public class Auth extends HttpServlet {
 
-    private BeanInterface bi = new ClassBean();
+    private UserBeanInterface bi = new UserBean();
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

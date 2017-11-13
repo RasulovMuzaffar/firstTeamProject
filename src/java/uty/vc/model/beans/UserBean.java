@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 import uty.vc.model.entities.user.Role;
 import uty.vc.model.entities.user.User;
 
-public class ClassBean implements BeanInterface {
+public class UserBean implements UserBeanInterface {
 
     Context ctx;
     DataSource ds = null;
@@ -30,7 +30,7 @@ public class ClassBean implements BeanInterface {
             ds = (DataSource) ctx.lookup("java:jboss/datasources/mysqlWAGON");
 
         } catch (NamingException ex) {
-            Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("NamingException | SQLException ex--> " + ex);
         }
         return ds;
@@ -43,7 +43,7 @@ public class ClassBean implements BeanInterface {
             dsDB2 = (DataSource) ctxDB2.lookup("java:jboss/datasources/db2WAGON");
 
         } catch (Exception ex) {
-            Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("NamingException | SQLException ex--> " + ex);
         }
         return dsDB2;
@@ -58,9 +58,9 @@ public class ClassBean implements BeanInterface {
             try {
                 throw new SQLException(dbVersion);
             } catch (SQLException ex1) {
-                Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex1);
+                Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, ex1);
             }
-            Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("SQLException ex-|-> " + ex);
         }
         return dbVersion;
@@ -83,7 +83,7 @@ public class ClassBean implements BeanInterface {
                 l.add(u);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, ex);
         }
         return l;
     }
@@ -109,11 +109,11 @@ public class ClassBean implements BeanInterface {
                 }
             } catch (SQLException ex) {
 //                throw new SQLException("Exception on the ResultSet getUserByLoginPass");
-                Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, ex);
                 return null;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
 
@@ -140,11 +140,11 @@ public class ClassBean implements BeanInterface {
                 }
             } catch (SQLException ex) {
 //                throw new SQLException("Exception on the ResultSet getUserByLoginPass");
-                Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, ex);
                 return null;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
         return u;
@@ -169,7 +169,7 @@ public class ClassBean implements BeanInterface {
             pstmt.executeUpdate();
         } catch (SQLException ex) {
 //                throw new SQLException("Exception on the ResultSet getUserByLoginPass");
-            Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
         return "new user added!";
@@ -189,11 +189,11 @@ public class ClassBean implements BeanInterface {
                 }
             } catch (SQLException ex) {
 //                throw new SQLException("Exception on the ResultSet getUserByLoginPass");
-                Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, ex);
                 return null;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
         return r;
@@ -212,7 +212,7 @@ public class ClassBean implements BeanInterface {
             pstmt.executeUpdate();
         } catch (SQLException ex) {
 //                throw new SQLException("Exception on the ResultSet getUserByLoginPass");
-            Logger.getLogger(ClassBean.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
         return "autorization is error!";

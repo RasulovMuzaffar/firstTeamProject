@@ -12,6 +12,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+import uty.vc.controller.Singleton;
 import uty.vc.model.entities.user.Role;
 import uty.vc.model.entities.user.User;
 
@@ -53,7 +54,8 @@ public class UserBean implements UserBeanInterface {
     public String getVersionDB() {
         String dbVersion = "";
         try {
-            dbVersion = getDSDB2().getConnection().getMetaData().getDatabaseProductName();
+            dbVersion = Singleton.ds.getConnection().getMetaData().getDatabaseProductName();
+//            dbVersion = getDS().getConnection().getMetaData().getDatabaseProductName();
         } catch (SQLException ex) {
             try {
                 throw new SQLException(dbVersion);

@@ -4,12 +4,14 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
+import uty.vc.controller.Singleton;
 import uty.vc.model.beans.UserBean;
 import uty.vc.model.entities.user.Role;
 import uty.vc.model.entities.user.User;
@@ -24,6 +26,11 @@ public class Auth extends HttpServlet {
 
     private UserBeanInterface ubi = new UserBean();
     private WagonBeanInterface wbi = new WagonBean();
+
+    public void init(ServletConfig config) throws ServletException {
+        Singleton.getOurInstance();
+        super.init(config);
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -77,23 +84,19 @@ public class Auth extends HttpServlet {
 //            User u = new User();
             MD5Parser md5 = new MD5Parser();
             JSONObject obj = new JSONObject();
-//            System.out.println("DB2 Ds >--->>-> " + wbi.getVersionDB());
-            
+            System.out.println("Ds >--->>-> " + ubi.getVersionDB());
+
 //            List<Wagon> lw = wbi.getAllWagons();
 //            System.out.println("------>>> "+lw.size());
 //            for (Wagon w : lw) {
 //                System.out.println(w.toString());
 //            }
-            
-            
 //            String s = "77891398, 76710227, 76710235,62768569, 62768577, 62768585, 62768601, 62768619,      62768643,62768676,11111111";
 //            
 //            List<Wagon> lw1 = wbi.getWagonsByNumbers(s);
 //            for (Wagon w : lw1) {
 //                System.out.println(w.toString());
 //            }
-            
-
             User u = ubi.getUserByLoginPass(login, md5.getMD5(password));
             if (u != null) {
                 Role r = ubi.getRoleById(u.getIdRole());
